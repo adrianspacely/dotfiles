@@ -73,6 +73,14 @@
         path: files/ssh_config
         create: true
         relink: true
+    /opt/homebrew/bin/run-meridian:
+        path: files/meridian/run-meridian
+        create: true
+        relink: true
+    /opt/homebrew/etc/supervisor.d/meridian.ini:
+        path: files/meridian/meridian.ini
+        create: true
+        relink: true
 
 - create:
     - ~/.fzf_history

@@ -100,7 +100,8 @@ set -e
             @vue/cli \
             git-trim \
             vls \
-            intelephense
+            intelephense \
+            @rynfar/meridian
 
         npm update -g
         echo 'Done installing and updating npm dependencies.'
@@ -191,6 +192,20 @@ set -e
         sudo chmod 755 /usr/local/share/zsh/site-functions
         sudo chown -R root:staff /usr/local/share/zsh
         echo 'Done misc configurations.'
+        echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+    )
+
+    (
+        echo ''
+        echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+        echo 'Starting supervisor and (re)loading meridian...'
+        brew services start supervisor
+        # Give supervisord a moment to come up before talking to it
+        sleep 2
+        supervisorctl reread
+        supervisorctl update
+        supervisorctl status
+        echo 'Done starting supervisor.'
         echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
     )
 
