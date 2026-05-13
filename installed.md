@@ -50,6 +50,22 @@ The following are things I cannot automate or might not apply to your hardware:
     gh extension install dlvhdr/gh-dash
     ```
 
+# Meridian
+
+    Meridian is installed via npm and run under supervisord. The install
+    script starts the service automatically, but it relies on `claude` being
+    authenticated. Run this once:
+
+    ```
+    claude login
+    ```
+
+    Verify it's running:
+
+    ```
+    supervisorctl status meridian
+    ```
+
 # Slack Groups
 
     * https://phpaustralia.slack.com

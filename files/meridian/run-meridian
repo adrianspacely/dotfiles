@@ -1,0 +1,5 @@
+#!/bin/bash
+export NVM_DIR="$HOME/Library/Application Support/Herd/config/nvm"
+# shellcheck source=/dev/null
+source "$NVM_DIR/nvm.sh"
+exec meridian
