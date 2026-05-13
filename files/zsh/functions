@@ -104,7 +104,7 @@ function killport() {
     fi
 }
 
-export LARAVEL_QUEUES='urgent,schedule,workflows,default,invites,database,coles,reports,cache,extended,idle'
+export LARAVEL_QUEUES='urgent,schedule,workflows,default,invites,database,forms,coles,reports,cache,extended,idle'
 
 function queue:work() {
     cores php artisan queue:work --memory=512 --timeout=3660 --tries 3 --backoff 5 --queue ${LARAVEL_QUEUES}
